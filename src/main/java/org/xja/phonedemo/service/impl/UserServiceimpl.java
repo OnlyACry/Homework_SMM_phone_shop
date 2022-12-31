@@ -2,6 +2,7 @@ package org.xja.phonedemo.service.impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.xja.phonedemo.domain.User;
 import org.xja.phonedemo.mapper.UserMapper;
 import org.xja.phonedemo.service.UserService;
@@ -9,13 +10,13 @@ import org.xja.phonedemo.utils.MD5Util;
 import org.xja.phonedemo.utils.MyBatisUtil;
 
 import java.util.List;
-
+@Service
 public class UserServiceimpl implements UserService{
     @Autowired
     private UserMapper userMapper;
     @Override
     public User login(String name, String pwd) {
-        User user = userMapper.findByNameAndPwd(name, MD5Util.MD5ToString(pwd));
+        User user= userMapper.findByNameAndPwd(name, MD5Util.MD5ToString(pwd));
         return user;
     }
 

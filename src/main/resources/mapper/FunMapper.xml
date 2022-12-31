@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间(namespace指向Mapper接口)-->
+<mapper namespace="org.xja.phonedemo.mapper.FunMapper">
+    <select id="showFuns" resultType="Funs">
+        select * from funs order by fun_sort desc
+    </select>
+</mapper>

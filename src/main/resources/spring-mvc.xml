@@ -13,4 +13,11 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <context:component-scan base-package="org.xja.phonedemo.controller"/>
     <mvc:annotation-driven/>
     <mvc:resources mapping="/static/**" location="/static/"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--跳转路径前缀-->
+        <property name="prefix" value="/WEB-INF/"/>
+        <!--跳转路径后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
 </beans>
