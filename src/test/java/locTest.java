@@ -1,4 +1,3 @@
-import javafx.application.Application;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -18,21 +17,21 @@ public class locTest {
     @Test
     public void test2()
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-ioc.xml");
         User u = (User)context.getBean("user");
         System.out.println(u);
     }
     @Test
     public void test3()
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-ioc.xml");
         SqlSessionFactory sf = (SqlSessionFactory)context.getBean("sf");
         System.out.println(sf.openSession(false));
     }
     @Test
     public void test4()
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-ioc.xml");
         UserMapper userMapper = (UserMapper)context.getBean("userMapper");
         userMapper.find();
 

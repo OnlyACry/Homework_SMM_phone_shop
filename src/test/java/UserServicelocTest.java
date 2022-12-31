@@ -6,7 +6,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.xja.phonedemo.domain.User;
 import org.xja.phonedemo.service.UserService;
-import org.xja.phonedemo.service.impl.UserServiceimpl;
 import org.xja.phonedemo.utils.MD5Util;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class UserServicelocTest {
 
     @Before
     public void init() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-ioc.xml");
         userService = (UserService) context.getBean("userService");
     }
     @Test
