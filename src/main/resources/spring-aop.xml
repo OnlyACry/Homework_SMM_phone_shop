@@ -29,6 +29,4 @@
         <aop:pointcut id="pc" expression="execution(public * org.xja.phone.service.*.*(..))"/>
         <aop:advisor advice-ref="trAdvice" pointcut-ref="pc"/>
     </aop:config>
-
-
 </beans>

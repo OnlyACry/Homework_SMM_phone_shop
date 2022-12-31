@@ -5,10 +5,6 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
 <div class="container">
     <div class="col-md-4 col-lg-offset-4">
         <form action="" method="post">

@@ -6,6 +6,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd" >
+    <context:component-scan base-package="org.xja.phonedemo.service.impl"/>
     <!--配置德鲁伊文件的位置-->
     <context:property-placeholder location="classpath:druid.properties"/>
     <!--配置连接池做为数据源(连接池和数据源的关系就是电池和电源的关系)-->
