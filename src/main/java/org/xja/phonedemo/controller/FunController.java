@@ -23,4 +23,24 @@ public class FunController {
         mv.setViewName("main");
         return mv;
     }
+    @RequestMapping("/delete")
+    public String delete(Integer funId)
+    {
+        funService.deleteFuns(funId);
+        return "redirect:../fun/list";
+    }
+    @RequestMapping("/save")
+    public String save(Funs fun)
+    {
+        fun.setFunLevel(fun.getFunPid()==null?1:2);
+        funService.saveFuns(fun);
+        return "redirect:../fun/list";
+    }
+    @RequestMapping("/update")
+    public String update(Funs fun)
+    {
+        fun.setFunLevel(fun.getFunPid()==null?1:2);
+        funService.updateFun(fun);
+        return "redirect:../fun/list";
+    }
 }

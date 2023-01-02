@@ -78,4 +78,14 @@ public class Funs implements Serializable {
     public void setFunPid(Integer funPid) {
         this.funPid = funPid;
     }
+
+    private Integer funLevel;
+
+    public Integer getFunLevel(){
+        return funLevel;
+    }
+
+    public void setFunLevel(Integer funLevel){
+        this.funLevel = funLevel;
+    }
 }

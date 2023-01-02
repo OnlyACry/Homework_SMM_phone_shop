@@ -13,6 +13,7 @@
 <table class="table table-condensed table-bordered">
     <tr>
         <th>编号</th><th>名称</th><th>功能链接</th><th>父级编号</th><th>链接目标</th><th>操作</th>
+        <a href="rout/saveFun">添加</a>
     </tr>
     <c:forEach var="fun" items="${list}">
         <tr>
@@ -21,7 +22,8 @@
             <td>${fun.funUrl}</td>
             <td>${fun.funPid}</td>
             <td>${fun.funTarget}</td>
-            <td><a href="#">删除</a><a href="#">编辑</a> </td>
+            <td><a href="fun/delete?funId=${fun.funId}">删除</a>&nbsp;&nbsp;
+                <a href="rout/updateFun?id=${fun.funId}">编辑</a> </td>
         </tr>
     </c:forEach>
 </table>

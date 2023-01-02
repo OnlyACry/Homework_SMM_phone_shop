@@ -7,4 +7,30 @@
     <select id="showFuns" resultType="Funs">
         select * from funs order by fun_sort desc
     </select>
+    <delete id="delete">
+        delete from funs where fun_id=#{funId}
+    </delete>
+    <insert id="save">
+        insert into funs(fun_name,fun_url,fun_pid,fun_target,fun_sort,fun_level)
+        values (#{funName},#{funUrl},#{funPid},#{funTarget},#{funSort},#{funLevel})
+    </insert>
+    <select id="findFunByLevel" resultType="Funs">
+        select * from funs where fun_level=#{funLevel}
+    </select>
+    <delete id="deleteByPid">
+        delete from funs where fun_pid=#{pid}
+    </delete>
+    <select id="get" resultType="Funs">
+        select * from funs where fun_id=#{funId}
+    </select>
+    <update id="update">
+        update funs
+        set fun_name=#{funName},
+            fun_url=#{funUrl},
+            fun_pid=#{funPid},
+            fun_target=#{funTarget},
+            fun_sort=#{funSort},
+            fun_level=#{funLevel}
+        where fun_id=#{funId}
+    </update>
 </mapper>

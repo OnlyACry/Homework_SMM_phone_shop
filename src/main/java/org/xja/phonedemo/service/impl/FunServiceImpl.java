@@ -16,4 +16,27 @@ public class FunServiceImpl implements FunService {
     public List<Funs> showFuns(){
         return funMapper.showFuns();
     }
+    @Override
+    public void deleteFuns(Integer funId){
+        funMapper.delete(funId);
+    }
+    @Override
+    public void saveFuns(Funs fun){
+        funMapper.save(fun);
+    }
+    @Override
+    public List<Funs> showLevel1(Integer funLevel){
+        return funMapper.findFunByLevel(funLevel);
+    }
+
+    @Override
+    public Funs funDetails(Integer funId) {
+        return funMapper.get(funId);
+    }
+
+    @Override
+    public void updateFun(Funs fun)
+    {
+        funMapper.update(fun);
+    }
 }
