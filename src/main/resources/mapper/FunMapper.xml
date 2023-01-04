@@ -5,7 +5,20 @@
 <!--命名空间(namespace指向Mapper接口)-->
 <mapper namespace="org.xja.phonedemo.mapper.FunMapper">
     <select id="showFuns" resultType="Funs">
-        select * from funs order by fun_sort desc
+        select *
+        from funs
+        <where>
+            <if test="funName!=null and funName!=''">
+                and fun_name like concat('%',#{funName},'%')
+            </if>
+            <if test="funTarget!=null and funTarget!=''">
+                and fun_target =#{funTarget}
+            </if>
+            <if test="funLevel!=null">
+                and fun_level =#{funLevel}
+            </if>
+        </where>
+        order by fun_sort
     </select>
     <delete id="delete">
         delete from funs where fun_id=#{funId}

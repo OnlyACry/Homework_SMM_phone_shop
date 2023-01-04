@@ -13,8 +13,8 @@ public class FunServiceImpl implements FunService {
     @Autowired
     private FunMapper funMapper;
     @Override
-    public List<Funs> showFuns(){
-        return funMapper.showFuns();
+    public List<Funs> showFuns(Funs fun){
+        return funMapper.showFuns(fun);
     }
     @Override
     public void deleteFuns(Integer funId){

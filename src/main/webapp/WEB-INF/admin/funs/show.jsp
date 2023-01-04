@@ -188,12 +188,12 @@ function dodel(funId){//点击删除调用js函数,传入会员号
             <td width="10%" height="19" background="images/bg.gif" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE1">基本操作</span></div></td>
           </tr>
           <c:choose>
-          <c:when test="${empty list}">
+          <c:when test="${empty pv.list}">
           <tr><td colspan="10" align="center" bgcolor="#FFFFFF"><div class="STYLE1" style="font-size:36px;color:red;">本次查询没有数据！</div></td></tr>
           </c:when>
 
           <c:otherwise>
-		  <c:forEach items="${list}" var="fun" varStatus="status">
+		  <c:forEach items="${pv.list}" var="fun" varStatus="status">
           <tr>
             <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center">
               <input type="checkbox" name="goodsIds" value="${fun.funId}" />
@@ -207,7 +207,7 @@ function dodel(funId){//点击删除调用js函数,传入会员号
             <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE1">${fun.funSort}</span></div></td>
             <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE1">${fun.funLevel}</span></div></td>
             <td height="20" bgcolor="#FFFFFF" nowrap="nowrap"><div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16" />
-              <A href=toUpdateCust?custid=${fun.funId}>编辑</A>&nbsp; &nbsp;
+              <A href=${pageContext.request.contextPath}/to/admin/funs/update?funId=${fun.funId}>编辑</A>&nbsp; &nbsp;
               <img src="images/del.gif" width="16" height="16" /><A href="javascript:dodel(${fun.funId})">删除</A>
             </span></div></td>
           </tr>

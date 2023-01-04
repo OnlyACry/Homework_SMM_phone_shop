@@ -5,7 +5,7 @@ import org.xja.phonedemo.domain.Funs;
 import java.util.List;
 
 public interface FunService {
-    public List<Funs> showFuns();
+    public List<Funs> showFuns(Funs fun);
     public void deleteFuns(Integer funId);
     public void saveFuns(Funs fun);
     public List<Funs> showLevel1(Integer funLevel);

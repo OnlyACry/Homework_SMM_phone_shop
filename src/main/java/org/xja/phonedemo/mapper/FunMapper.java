@@ -6,7 +6,7 @@ import org.xja.phonedemo.domain.Funs;
 import java.util.List;
 @MapperScan
 public interface FunMapper {
-    public List<Funs> showFuns();
+    public List<Funs> showFuns(Funs fun);
     public void delete(Integer funId);
     public void save(Funs fun); //添加
     public List<Funs> findFunByLevel(Integer funLevel);
