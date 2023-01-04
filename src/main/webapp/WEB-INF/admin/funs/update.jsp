@@ -51,7 +51,7 @@ body {
             <td width="46%" valign="middle"><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="5%"><div align="center"><img src="images/tb.gif" width="16" height="16" /></div></td>
-                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[会员管理]-[修改会员]</td>
+                <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[功能管理]-[修改功能]</td>
               </tr>
             </table></td>
             <td width="54%">&nbsp;</td>
@@ -65,65 +65,53 @@ body {
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="8" background="images/tab_12.gif">&nbsp;</td>
-        <td><form action="saveUpdateCust"
-         method="post">
-          <!--隐藏域:不是为了被看到  带custid-->
-         <input type="hidden" name="custid" value="${cust.custid}">
-
+        <td><form action="${pageContext.request.contextPath}/fun/update"   method="post" name="savegoodsform" id="savegoodsform">
           <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="b5d6e6" >
             <tr>
-              <td width="100%" colspan="2" height="19" align="right"  bgcolor="#FFFFFF"><div align="center">
-                <span class="STYLE1" style="color:red;">${requestScope.error }</span></div></td>
+              <td width="100%" colspan="2" height="19" align="right"  bgcolor="#FFFFFF"><div align="center"><span class="STYLE1" style="color:red;">${requestScope.error }</span></div></td>
             </tr>
             <tr>
-              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right">
-                <span class="STYLE1">会员名：</span></div></td>
-              <td width="66%" height="19" align="left"  bgcolor="#FFFFFF">
-                <div align="left"><span class="STYLE1">
-                <input type="text" name="custname" id="custname" value="${cust.custname}">
-              </span></div></td>
-            </tr>
-            <tr>
-              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right">
-                <span class="STYLE1">昵称：</span></div></td>
-              <td width="66%" height="19" align="left"  bgcolor="#FFFFFF">
-                <div align="left"><span class="STYLE1">
-                <input type="text" name="custnickname" id="custnickname" value="${cust.custnickname}">
-              </span></div></td>
-            </tr>
-            <tr>
-              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right">
-                <span class="STYLE1">地址：</span></div></td>
+              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">名称：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-                <input type="text" name="custaddress" id="custaddress" value="${cust.custaddress}">
+                <input type="hidden" name="funId" value="${fun.funId}">
+                <input type="text" name="funName" id="funName" value="${fun.funName}">
               </span></div></td>
             </tr>
             <tr>
-              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right">
-                <span class="STYLE1">电话：</span></div></td>
+              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">URL：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-                <input type="text" name="custtel" id="custtel" value="${cust.custtel}">
+                <input type="text" name="funUrl" id="funUrl" value="${fun.funUrl}">
               </span></div></td>
             </tr>
             <tr>
-              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right">
-                <span class="STYLE1">等级：</span></div></td>
+              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">TARGET：</span></div></td>
               <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
-                <select name="custlevel" id="custlevel">
-
-                  <option value="VIP"
-                          <c:if test="${cust.custlevel eq 'VIP'}">
-                          selected
-                          </c:if>
-                  >VIP</option>
-                    <option value="普通"
-                            <c:if test="${cust.custlevel eq '普通'}">
-                              selected
-                            </c:if>
-                    >普通</option>
-
-
+                <select name="funTarget" id="funTarget">
+                  <option value="I1">I1</option>
+				<option value="I2">I2</option>
+                  <option value="_top">_top</option>
                 </select>
+              </span></div></td>
+            </tr>
+            <tr>
+              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">父级菜单：</span></div></td>
+              <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
+                <select name="funPid" id="funPid">
+                 <option value="">请选择</option>
+                      <c:forEach var="f" items="${funsList}">
+                          <option value="${f.funId}"
+                                  <c:if test="${f.funId == fun.funPid}">
+                                    selected
+                                  </c:if>
+                          >${f.funName}</option>
+                      </c:forEach>
+                </select>
+              </span></div></td>
+            </tr>
+            <tr>
+              <td width="34%" height="19" align="right"  bgcolor="#FFFFFF"><div align="right"><span class="STYLE1">SORT：</span></div></td>
+              <td width="66%" height="19" align="left"  bgcolor="#FFFFFF"><div align="left"><span class="STYLE1">
+                <input type="text" name="funSort" id="funSort" value="${fun.funSort}">
               </span></div></td>
             </tr>
             <tr>
