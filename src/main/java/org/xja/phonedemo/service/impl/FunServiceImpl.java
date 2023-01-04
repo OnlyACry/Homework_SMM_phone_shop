@@ -26,7 +26,12 @@ public class FunServiceImpl implements FunService {
     }
     @Override
     public List<Funs> showLevel1(Integer funLevel){
-        return funMapper.findFunByLevel(funLevel);
+        List<Funs> funOneList = funMapper.findFunByLevel(funLevel);
+        for(Funs fun : funOneList){
+            List<Funs> funTwoList = funMapper.findFunByPid(fun.getFunId());
+            fun.setTwoFunList(funTwoList);
+        }
+        return funOneList;
     }
 
     @Override

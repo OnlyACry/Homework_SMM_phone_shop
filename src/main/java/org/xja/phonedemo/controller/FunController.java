@@ -20,7 +20,7 @@ public class FunController {
         List<Funs> list=funService.showFuns();
         ModelAndView mv=new ModelAndView();
         mv.getModel().put("list",list);
-        mv.setViewName("main");
+        mv.setViewName("/admin/funs/show");
         return mv;
     }
     @RequestMapping("/delete")

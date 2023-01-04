@@ -10,6 +10,7 @@ public interface FunMapper {
     public void delete(Integer funId);
     public void save(Funs fun); //添加
     public List<Funs> findFunByLevel(Integer funLevel);
+    public List<Funs> findFunByPid(Integer funPid);
     public void deleteByPid(Integer pid);
     public Funs get(Integer funId);
     public void update(Funs fun);

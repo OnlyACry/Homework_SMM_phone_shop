@@ -15,7 +15,10 @@
         values (#{funName},#{funUrl},#{funPid},#{funTarget},#{funSort},#{funLevel})
     </insert>
     <select id="findFunByLevel" resultType="Funs">
-        select * from funs where fun_level=#{funLevel}
+        select * from funs where fun_level=#{funLevel} order by fun_sort
+    </select>
+    <select id="findFunByPid" resultType="Funs">
+        select * from funs where fun_pid = #{funPid}
     </select>
     <delete id="deleteByPid">
         delete from funs where fun_pid=#{pid}
