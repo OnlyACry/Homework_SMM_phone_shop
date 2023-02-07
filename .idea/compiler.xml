@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="phonedemo" />
+        <module name="ssmphone" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="phonedemo" target="1.8" />
+      <module name="ssmphone" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

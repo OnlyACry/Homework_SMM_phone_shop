@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间(namespace指向Mapper接口)-->
+<mapper namespace="org.xja.phonedemo.mapper.AdminMapper">
+    <resultMap id="adminMap" type="Admin">
+        <result property="adminId" javaType="java.lang.Integer" column="admin_id"></result>
+        <result property="adminName" javaType="java.lang.String" column="admin_name"></result>
+        <result property="adminPass" javaType="java.lang.String" column="admin_pass"></result>
+    </resultMap>
+    <select id="find" resultMap="Brands">
+        select * from brands
+            <where>
+                <if test="brandName!=null and brandName!=''">
+                    and brand_name like concat('%',#{brandName},'%')
+                </if>
+            </where>
+            order by brand_id
+    </select>
+    <delete id="delete">
+        delete from brands where brand_id=#{brandId}
+    </delete>
+    <insert id="save">
+        insert into brands (brand_name) values (#{brandName})
+    </insert>
+    <select id="get" resultType="Brands">
+        select * from brands where brand_id=#{brandId}
+    </select>
+    <update id="update">
+        update brands set brand_name=#{brandName} where brand_id=#{brandId}
+    </update>
+</mapper>
